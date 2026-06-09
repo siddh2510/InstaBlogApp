@@ -23,6 +23,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'config', 'uploads')));
 app.use('/api/users', userRoutes);
 app.use('/api/posts', postRoutes);
 
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'InstaBlog Backend Running Successfully 🚀'
+  });
+});
+
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
